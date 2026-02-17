@@ -6,7 +6,7 @@ movies = None
 ratings = None
 tags = None
 links = None
-
+#this function will load the datasets
 def load_data(folder_path):
     """Load all datasets from a single folder"""
     global movies, ratings, tags, links
@@ -21,6 +21,6 @@ def load_data(folder_path):
     except Exception as e:
         print(f"Failed to load datasets: {e}")
         return False
-
+#this function will return the datasets
 def get_data():
     return movies, ratings, tags, links

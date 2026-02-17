@@ -1,7 +1,7 @@
 from modules.data_loader import load_data
 from modules.plots import show_data_info, plot_ratings, plot_genres, show_top_movies_grading,  plot_single_movie_review_paginated
 import os
-
+#from modules.utils import split_genres
 def main():
     print("=== MovieLens Data Analysis ===\n")
 
@@ -10,7 +10,7 @@ def main():
     if not load_data(datasets_folder):
         print("Error: Could not load datasets from 'datasets/' folder!")
         return
-
+   # main menu
     while True:
         print("\nSelect an option:")
         print("1 - Show dataset info")
@@ -19,14 +19,14 @@ def main():
         print("4 - Show top movies review graph")
         print("5 - Show individual movie review graph")
         print("0 - Exit")
-        
+        #try to get user input
         try:
              choice = input("Enter your choice: ").strip()
         except EOFError:
                 print("\nInput not available. Exiting...")
                 break
 
-        
+        #check user input
         if choice == '1':
             show_data_info()
         elif choice == '2':

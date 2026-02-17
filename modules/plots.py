@@ -3,7 +3,7 @@ import seaborn as sns
 import pandas as pd
 from modules.data_loader import get_data
 from modules.utils import split_genres
-
+#this function will show the data info
 def show_data_info():
     movies, ratings, tags, links = get_data()
     if movies is None:
@@ -14,7 +14,7 @@ def show_data_info():
     print(f"Ratings: {ratings.shape[0]} rows, {ratings.shape[1]} columns")
     print(f"Tags: {tags.shape[0]} rows, {tags.shape[1]} columns")
     print(f"Links: {links.shape[0]} rows, {links.shape[1]} columns")
-
+#this function will show the rating distribution
 def plot_ratings():
     movies, ratings, tags, links = get_data()
     if ratings is None:
@@ -27,7 +27,7 @@ def plot_ratings():
     plt.xlabel("Rating")
     plt.ylabel("Count")
     plt.show(block=True)
-
+#this function will show the genre distribution
 def plot_genres():
     movies, ratings, tags, links = get_data()
     if movies is None:
@@ -48,6 +48,7 @@ def plot_genres():
     plt.xlabel("Count")
     plt.ylabel("Genre")
     plt.show(block=True)
+    #this function will show the top movies         
 def show_top_movies_grading(top_n=10):
     """
     Show top N movies in a grading table (average rating + grade)
@@ -83,7 +84,7 @@ def show_top_movies_grading(top_n=10):
     print("\nTop Movies Grading Table:")
     print(top_movies[['title', 'rating', 'Grade']].to_string(index=False))
 
-
+#this function will show the single movie
 def plot_single_movie_review_paginated(page_size=20):
     movies, ratings, tags, links = get_data()
     if movies is None or ratings is None:
