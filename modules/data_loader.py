@@ -6,7 +6,7 @@ movies = None
 ratings = None
 tags = None
 links = None
-#this function will load the datasets
+
 def load_data(folder_path):
     """Load all datasets from a single folder"""
     global movies, ratings, tags, links
@@ -16,11 +16,15 @@ def load_data(folder_path):
         ratings = pd.read_csv(os.path.join(folder_path, "ratings.csv"))
         tags = pd.read_csv(os.path.join(folder_path, "tags.csv"))
         links = pd.read_csv(os.path.join(folder_path, "links.csv"))
-        print("Datasets loaded successfully!")
         return True
     except Exception as e:
-        print(f"Failed to load datasets: {e}")
         return False
-#this function will return the datasets
+
 def get_data():
     return movies, ratings, tags, links
+
+def split_genres(genre_str):
+    """Split genres separated by |"""
+    if isinstance(genre_str, str):
+        return genre_str.split('|')
+    return []
